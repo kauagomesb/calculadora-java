@@ -37,7 +37,12 @@ public class App {
         do {
             if (sc.hasNextDouble()) {
                 op.setSegNum(sc.nextDouble());
-                break;
+
+                if (op.getOperador().equals("/") && op.getSegNum()==0){
+                    System.out.println("Digite um valor diferente de 0: ");
+                } else{
+                    break;
+                }
             } else {
                 System.out.println("Digite apenas números válidos: ");
                 sc.next(); //Descarta o buffer
@@ -62,8 +67,8 @@ public class App {
         else if (op.getOperador().equals("/")) {
             op.setResultado(calc.div(op.getPrimNum(), op.getSegNum()));
             System.out.println("Resultado: " + op.getResultado());
+        }
 
         sc.close();
-        }
     }
 }
